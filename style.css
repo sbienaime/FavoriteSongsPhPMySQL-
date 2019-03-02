@@ -1,75 +1,121 @@
-<!DOCTYPE html>
-<!--
+/*
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
--->
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-        
-         <link rel="stylesheet" type="text/css" href="style.css">
-         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    </head>
-  
+*/
+/* 
+    Created on : Feb 8, 2019, 12:13:48 PM
+    Author     : remyb
+*/
+
+* {
+    
+padding:0;
+margin:0; 
+border:0;}
+
+
+h1{
+   margin-top:50px; 
+    
+   text-align: center;
+    padding-top:10px;
+
+
+
+font-family: 'Lato', sans-serif;
+
+}
+
+nav{
+    
    
- <body>
-        
-      
-        
-        <!--// the navigation bar -->
-        <nav>
-        <!--this creates an unordered list inside of my navigation bar -->
-        <ul>
-       <!-- these are the list items aka the navigation butons -->  
-        <!-- navigation buttons are links -->
-              
-            <li><a href='index.php' >Home</a></li> 
-             <li><a href='Dashboard.php' >Form</a> </li>
-                
-                
-        </ul>
-        </nav> 
-        
-           <h1>  List Of Favorite Songs  </h1>
-        
-      
-        <p> Below is your current list of favorite songs. You can add to this list by going to the forms page.  </p>
-         <table>
-        
-        <?php
-        
-        session_start();
-        $file = file("favoritesongs1.csv");  
-           $c =1;
-         foreach($file as $k) {
-             $entry = explode(",", $k);
-                     
-              $array_size = sizeof($entry);
-             
-              for ($i = 0; $i < $array_size; $i++){
-                  
-                  
-                  
-                  
-                  echo "<tr  class=row".$c.">";
+ align-content: center;   
+ height:30px;
+ 
+ background-color:#0984e3;
+}
+
+
+ul {
+    
+    
+
+list-style-type: none;
+
+
+padding-right:10px;
+}
+.row1{
+    text-align:center;
+     font-weight: bold;
+text-transform: capitalize;
+background-color:pink; 
+font-family: 'Lato', sans-serif;
+    
+    
+}
+
+table{ 
+    
+    margin-top:100px;
+    margin-left:auto;
+    margin-right:auto;
+    
+    width:75%}
+td{ 
+
+    border: 2px;
+    border-style:solid;   
+
+padding:0;
+margin:0;
+}
+table{
+    
+  
+}
+form{
+    position:relative;
+    width:900px;
+     margin:50px;
+    
+    border-style:solid;
+    
+     font-family: 'Lato', sans-serif;
+    border: 5px;}
+input{
+    text-align: center;
+    position:absolute;
+   
+    left:75px;
+    margin:10px;
+ 
+    background-color:#fdcb6e; 
+   
+    border-style:solid; border: 50px;
+
+margin-left:auto;
+margin-right:auto;
+
+}
+p{ 
+    font-weight: bold;
+    
+    padding-top:60px;
+    font-family: 'Lato', sans-serif;
+    text-align:center;}
+a{ 
+   text-decoration:none;
+    color:white;
+    font-family: 'Lato', sans-serif;
+    padding-bottom:10px;
+}
+li{
+  padding-right:10px;   
+padding-top:10px;
+padding-bottom:0;
+float:left;  
+padding-right:10px;
+}
          
-            for ($i = 0; $i < $array_size; $i++){
-                  echo "<td>". $entry[$i]. "</td>";
-            }
-                   
-              echo "</tr>";
-         
-              }
-           $c++;   
-         }
-         
-        
-      
-        session_destroy();
-        ?>
-             
-         </table>
-    </body>
-</html>

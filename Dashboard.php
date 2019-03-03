@@ -31,15 +31,12 @@
               
               
                <li><a href='index.php' >Home</a></li> 
-                
-                
-                
-                <li><a href='Dashboard.php' >Form</a> </li>
-                
-                
+                <li><a href='Dashboard.php' >Insert</a> </li>
+                <li><a href='update.php' >Update</a> </li>
+                <li><a href='delete.php' >Delete</a> </li>
         </ul>
         </nav> 
-    <p> Hello there, welcome to the CSV Editor page. Use the form below to add entries to the file. </p>
+    <p> Hello there, welcome to the Insert page. Use the form below to insert new entries into the DBS table. </p>
     
     
     
@@ -48,8 +45,8 @@
     <form action='successfulsubmission.php' method='POST'>
       <?php
       
-      session_start();
-      
+    
+    /*  
       global $column_names;
       $column_names=array();
      
@@ -58,31 +55,26 @@
        foreach($file as $k) {
             $column_names = explode(",", $k);
              
-             foreach ($column_names as $x){
+             foreach ($column_names as $x)
                
- 
-
-switch ($i) {
-    case 0:
-        echo "<pre>".$column_names[$i]."  "."<input type='text' placeholder='Enter your text here' name='author' > <br> <br><br>";
-        break;
-    case 1:
-        echo "<pre>".$column_names[$i]."  "."<input type='text' placeholder='Enter your text here' name='title' > <br> <br><br>";
-        break;
-    case 2:
-       echo "<pre>".$column_names[$i]."  "."<input type='text' placeholder='Enter your text here' name='singer' > <br> <br><br>";
-        break;
-    case 3: 
-       echo "<pre>".$column_names[$i]."  "."<input type='text' placeholder='Enter your text here' name='year' > <br> <br><br>";          
-    break;
+ */
+       
+       echo "<pre>  Author  <input type='text' placeholder='Enter your text here' name='author' > <br> <br><br>";
+       
+   
+        echo "<pre>  Title <input type='text' placeholder='Enter your text here' name='title' > <br> <br><br>";
+       
+    
+         echo  "<pre>  Artist <input type='text' placeholder='Enter your text here' name='singer' > <br> <br><br>";
+       
+    
+         echo "<pre>   Year <input type='text' placeholder='Enter your text here' name='year' > <br> <br><br>";         
+   
     
     
-}           
+       
                  
-           $i++;
-             }
-     break 1;
-       }
+   
      
      
      

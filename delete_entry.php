@@ -33,7 +33,7 @@
 
         $year = $_POST['year'];
         $artist = $_POST['singer'];
-
+        $row=$_POST['id'];
         //$line =array($author,$title,$artist,$year);
 //$line = str_replace('"', '', $line);
 
@@ -48,12 +48,11 @@
 
         $conn = new mysqli($mysql_host, $mysql_user, $mysql_pass, $sqldb);
 
-        $insert = 'INSERT INTO Favorite_Songs (author, title, release_year, artist) 
-             VALUES("' . $author . '","' . $title . '","' . $year . '","' . $artist . '");';
-        if ($conn->query($insert) === TRUE) {
+        $delete = 'DELETE FROM Favorite_Songs WHERE id="'.$row.'";';
+        if ($conn->query($delete) === TRUE) {
             echo "New record created successfully";
         } else {
-            echo "Error: " . $insert . "<br>" . $conn->error;
+            echo "Error: " . $delete . "<br>" . $conn->error;
         }
 
 

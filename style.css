@@ -5,7 +5,7 @@ and open the template in the editor.
 */
 /* 
     Created on : Feb 8, 2019, 12:13:48 PM
-    Author     : remyb
+    Author     : Steve Bien-Aime
 */
 
 * {
@@ -100,6 +100,9 @@ margin-right:auto;
 
 }
 p{ 
+    
+    margin-left:auto;
+    margin-right:auto;
     font-weight: bold;
     
     padding-top:60px;
@@ -118,4 +121,3 @@ padding-bottom:0;
 float:left;  
 padding-right:10px;
 }
-         

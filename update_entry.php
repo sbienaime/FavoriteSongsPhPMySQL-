@@ -61,13 +61,13 @@
         SET author ="'.$author.'" where id ="'.$row.'";';
         
         if ($conn->query($update) === TRUE) {
-            echo "The author field was successfully successfully updated";
+            echo "The author field was successfully updated ";
         } else {
-            echo "Error: " . $update . "<br>" . $conn->error;
+            echo "Your entry was not valid, please try again. Thank You.";
         }
         
         }
-        else {echo 'The author field was not updated';}
+        else {echo "The author field was not updated";}
         
         
         if(isset($title)){
@@ -79,11 +79,11 @@
         if ($conn->query($update) === TRUE) {
             echo "The title field was successfully updated.";
         } else {
-            echo "Error: " . $update . "<br>" . $conn->error;
+            echo "Your entry was not valid, please try again. Thank You.";
         }
         
         }
-         else {echo 'The title field was not updated .';}
+         else {echo "The title field was not updated .";}
         
         
         
@@ -99,7 +99,7 @@
          if ($conn->query($update) === TRUE) {
             echo "The year was successfully updated";
         } else {
-            echo "Error: " . $update . "<br>" . $conn->error;
+            echo "Your entry was not valid, please try again. Thank You.";
         }
         
         
@@ -119,7 +119,7 @@
          if ($conn->query($update) === TRUE) {
             echo " The artist field was successfully update";
         } else {
-            echo "Error: " . $update . "<br>" . $conn->error;
+            echo "Your entry was not valid, please try again. Thank You.";
         }
         
         
@@ -128,7 +128,7 @@
           }
         
         
-         else {echo 'The artist field was not updated.';}
+         else {echo "The artist field was not updated.";}
        /* $update = 'INSERT INTO Favorite_Songs (author, title, release_year, artist) 
              VALUES("' . $author . '","' . $title . '","' . $year . '","' . $artist . '");';
         if ($conn->query($update) === TRUE) {

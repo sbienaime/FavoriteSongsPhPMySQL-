@@ -9,7 +9,8 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title></title>
-
+        <link rel='stylesheet' type='text/css'  href='normalize.css'>
+        <link rel="stylesheet" type="text/css" href="grid.css">
         <link rel="stylesheet" type="text/css" href="style.css">
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     </head>
@@ -95,7 +96,62 @@ and open the template in the editor.
         // $c++;
         //}
         ?>
+            
+        </table>   
+            
+            
+           
+            
+         <footer class='thisfooter'>        
+      
+        <div class="row">
+        
+        
+      <div class="col span-1-of-2"
+           <!--this creates an unordered list inside of my navigation bar-->
+            <ul class="footer-nav">
+                <!-- these are the list items aka the navigation butons 
+                <!-- navigation buttons are links -->
 
-    </table>
+                <li><a href="index.php">Home</a></li> 
+                <li><a href="Dashboard.php">Insert</a></li>
+                <li><a href="update.php">Update</a></li>
+                <li><a href="delete.php">Delete</a></li>                                                                                                          
+
+
+
+            </ul>
+          
+        </div>
+            <div class="col span-2-of-1">
+                <ul class="footer-links">
+                    
+                    
+            <li><a class='facebook' href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+            <li><a class='linkedin' href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+            <li><a class='twitter' href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+            <li><a  class='github' href="#"><ion-icon name="logo-github"></ion-icon></a></li>
+             
+                    
+                    
+           </ul>
+           </div>
+           </div>
+            
+            
+            
+            <div class="row">
+            <p class='footer'>
+                
+            Copyright &copy; 2019 by Steve Bien-Aime . All rights reserved.     
+            
+            </p>
+            </div>
+            
+           
+        </footer>  
+        
+
+<script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script> 
 </body>
 </html>

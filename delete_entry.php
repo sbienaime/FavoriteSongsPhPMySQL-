@@ -45,22 +45,41 @@
         $mysql_pass = 'password';
         $sqldb = 'Test_Data';
         $m = "does not exist";
-
+        
         $conn = new mysqli($mysql_host, $mysql_user, $mysql_pass, $sqldb);
+          
+        $delete = 'DELETE FROM Favorite_Songs where id ="'.$row.'";';
+     $result = $conn->query($delete);
+        
+                
+$sidemenus = array();
 
-        $delete = 'DELETE FROM Favorite_Songs WHERE id="'.$row.'";';
-        if ($conn->query($delete) === TRUE) {
-            echo "New record created successfully";
-        } else {
-            echo "Error: " . $delete . "<br>" . $conn->error;
-        }
+       
+            if($conn->query($delete)){
+              if (sizeof($result>0)) {
+   
+                 echo "Your record was deleted successfully";
+                    }  
+            
+            else {
+                
+              echo "Please enter a valid id number. Thank YOU " ; 
+                
+            }
+           
+          
+          }else{echo "Please enter a valid id number. Thank YOU ";}
+            
+        
+             
+
 
 
 
 
 
         $conn->close();
-        echo "<p><strong><center>Your submission was succcessful</strong></center></p> ";
+      
         ?>
 
 

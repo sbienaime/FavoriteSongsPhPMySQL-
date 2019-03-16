@@ -28,7 +28,7 @@ and open the template in the editor.
                 <!-- navigation buttons are links -->
 
                 <li><a href='index.php' >Home</a></li> 
-                <li><a href='Dashboard.php' >Insert</a> </li>
+                <li><a href='insert.php' >Insert</a> </li>
                 <li><a href='update.php' >Update</a> </li>
                 <li><a href='delete.php' >Delete</a> </li>
 
@@ -49,12 +49,12 @@ and open the template in the editor.
         $mysql_host = 'localhost';
         $mysql_user = 'root';
         $mysql_pass = 'password';
-        $sqldb = 'Test_Data';
+        $sqldb = 'favorite_songs';
         $m = "does not exist";
 
         $conn = new mysqli($mysql_host, $mysql_user, $mysql_pass, $sqldb);
 
-        /* $update = 'INSERT INTO Favorite_Songs (author, title, release_year, artist) 
+        /* $update = 'INSERT INTO favorite_songs (author, title, release_year, artist) 
           VALUES("' . $author . '","' . $title . '","' . $year . '","' . $artist . '");';
           if ($conn->query($update) === TRUE) {
           echo "New record created successfully";
@@ -65,7 +65,7 @@ and open the template in the editor.
 
 
 
-        $select = 'Select * from Favorite_Songs;';
+        $select = 'Select * from favorite_songs;';
         $result = $conn->query($select);
 
         if ($result->num_rows > 0) {

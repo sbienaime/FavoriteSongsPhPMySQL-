@@ -30,7 +30,7 @@
                 <!-- navigation buttons are links -->
 
                 <li><a href='index.php' >Home</a></li> 
-                <li><a href='Dashboard.php' >Insert</a> </li>
+                <li><a href='insert.php' >Insert</a> </li>
                 <li><a href='update.php' >Update</a> </li>
                 <li><a href='delete.php' >Delete</a> </li>
 
@@ -59,12 +59,12 @@
         $mysql_host = 'localhost';
         $mysql_user = 'root';
         $mysql_pass = 'password';
-        $sqldb = 'Test_Data';
+        $sqldb = 'favorite_songs';
         $m = "does not exist";
 
         $conn = new mysqli($mysql_host, $mysql_user, $mysql_pass, $sqldb);
 
-        /* $update = 'INSERT INTO Favorite_Songs (author, title, release_year, artist) 
+        /* $update = 'INSERT INTO favorite_songs (author, title, release_year, artist) 
           VALUES("' . $author . '","' . $title . '","' . $year . '","' . $artist . '");';
           if ($conn->query($update) === TRUE) {
           echo "New record created successfully";
@@ -75,7 +75,7 @@
 
 
 
-        $select = 'Select * from Favorite_Songs;';
+        $select = 'Select * from favorite_songs;';
         $result = $conn->query($select);
         $i=1;
         if ($result->num_rows > 0) {
@@ -92,78 +92,6 @@
             echo "0 results";
         }
 
-        // $file = file("favoritesongs1.csv");
-        //$c = 1;
-        ////foreach ($file as $k) {
-        //  $entry = explode(",", $k);
-        // $array_size = sizeof($entry);
-        ///for ($i = 0; $i < $array_size; $i++) {
-        //echo "<tr  class=row" . $c . ">";
-        //for ($i = 0; $i < $array_size; $i++) {
-        ////    echo "<td>" . $entry[$i] . "</td>";
-        //}
-        // echo "</tr>";
-        //}
-        // $c++;
-        //}
-      
-            /*
-              global $column_names;
-              $column_names=array();
-
-              $i=0;
-              $file = file("favoritesongs1.csv");
-              foreach($file as $k) {
-              $column_names = explode(",", $k);
-
-              foreach ($column_names as $x)
-
-             
-
-            echo "<pre>  Author  <input type='text' placeholder='Enter your text here' name='author' > <br> <br><br>";
-
-
-            echo "<pre>  Title <input type='text' placeholder='Enter your text here' name='title' > <br> <br><br>";
-
-
-            echo "<pre>  Artist <input type='text' placeholder='Enter your text here' name='singer' > <br> <br><br>";
-
-
-            echo "<pre>   Year <input type='text' placeholder='Enter your text here' name='year' > <br> <br><br>";
-            */
-            
-            
-            
-            
-      
-
-        /* $update = 'INSERT INTO Favorite_Songs (author, title, release_year, artist) 
-          VALUES("' . $author . '","' . $title . '","' . $year . '","' . $artist . '");';
-          if ($conn->query($update) === TRUE) {
-          echo "New record created successfully";
-          } else {
-          echo "Error: " . $update . "<br>" . $conn->error;
-          } */
-
-
-
-
-      
-
-        // $file = file("favoritesongs1.csv");
-        //$c = 1;
-        ////foreach ($file as $k) {
-        //  $entry = explode(",", $k);
-        // $array_size = sizeof($entry);
-        ///for ($i = 0; $i < $array_size; $i++) {
-        //echo "<tr  class=row" . $c . ">";
-        //for ($i = 0; $i < $array_size; $i++) {
-        ////    echo "<td>" . $entry[$i] . "</td>";
-        //}
-        // echo "</tr>";
-        //}
-        // $c++;
-        //}
         ?>
 
     

@@ -30,7 +30,7 @@
                 <!-- navigation buttons are links -->
 
                 <li><a href='index.php' >Home</a></li> 
-                <li><a href='Dashboard.php' >Insert</a> </li>
+                <li><a href='insert.php' >Insert</a> </li>
                 <li><a href='update.php' >Update</a> </li>
                 <li><a href='delete.php' >Delete</a> </li>
 
@@ -83,12 +83,12 @@
             $mysql_host = 'localhost';
             $mysql_user = 'root';
             $mysql_pass = 'password';
-            $sqldb = 'Test_Data';
+            $sqldb = 'favorite_songs';
             $m = "does not exist";
 
             $conn = new mysqli($mysql_host, $mysql_user, $mysql_pass, $sqldb);
 
-            /* $update = 'INSERT INTO Favorite_Songs (author, title, release_year, artist) 
+            /* $update = 'INSERT INTO favorite_songs (author, title, release_year, artist) 
               VALUES("' . $author . '","' . $title . '","' . $year . '","' . $artist . '");';
               if ($conn->query($update) === TRUE) {
               echo "New record created successfully";
@@ -100,7 +100,7 @@
 
             echo "<table>";
             echo "<tr><th>id</th> <th>Author</th><th>Title</th><th>Year</th><th>Artist</th></tr>";
-            $select = 'Select * from Favorite_Songs;';
+            $select = 'Select * from favorite_songs;';
             $result = $conn->query($select);
             $i = 1;
             if ($result->num_rows > 0) {

@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 
 * {
-    
+  box-sizing: border-box;  
 padding:0;
 margin:0; 
 border:0;}
@@ -28,9 +28,7 @@ font-family: 'Lato', sans-serif;
 }
 
 nav{
-    
-   
- align-content: center;   
+     
  height:30px;
  
  background-color:#0984e3;
@@ -40,7 +38,7 @@ nav{
 ul {
     
     
-
+color:#000000;
 list-style-type: none;
 
 
@@ -71,10 +69,7 @@ td{
 padding:0;
 margin:0;
 }
-table{
-    
-  
-}
+
 form{
     position:relative;
     width:900px;
@@ -110,14 +105,203 @@ p{
     text-align:center;}
 a{ 
    text-decoration:none;
-    color:white;
+    color:#fff;
+    font-family: 'Lato', sans-serif;
+    padding-bottom:10px;
+}
+nav a{ 
+   text-decoration:none;
+    color:#fff;
     font-family: 'Lato', sans-serif;
     padding-bottom:10px;
 }
 li{
+    color:black;
   padding-right:10px;   
 padding-top:10px;
 padding-bottom:0;
 float:left;  
 padding-right:10px;
+}
+
+ion-icon {
+      float:right;
+  font-size: 30px;
+  margin-right: 0;
+  
+}
+
+
+.footer-links a{
+    
+    float:right; 
+color:#000000   
+    
+    
+}
+.footer-nav a{
+      
+color:rgba(150,240,90,0.96); 
+    
+    
+}
+
+
+
+  
+
+
+   
+   .thisfooter{
+       
+      position:absolute;
+      bottom:0;
+      width:100%;
+      margin-bottom:0;
+       margin-top: 100px ;
+       margin-right:0;
+      
+       padding-bottom:0;
+       
+       background-color:#333;
+       
+   }
+   
+   .footer-nav{
+     padding-left:20px;  
+   
+     float:left;
+       
+       
+       
+   }
+   .footer-links{
+         padding-left:475px;
+     float:right;   
+       
+   }
+   .footer-links li {
+     
+     float:right; 
+       padding-right: 20px;
+       
+     list-style:none;
+    
+       
+       
+       
+   }
+   
+   .footer-nav li,.footer-links li{
+       
+       display:inline-block;
+       
+        
+       
+       
+       
+   }
+   
+   
+     
+   
+   .footer-nav li:last-child,.footer-links li:last-child{
+       
+       margin-right:0;
+       
+      
+       
+       
+   }
+   
+   
+   .footer-nav li a:link, 
+   .footer-nav li a:visited,
+   .footer-links li a:link, 
+   .footer-links li a:visited{
+       text-decoration:none;
+       border:0;
+       color:#888;
+      transition: color 0.2s; 
+       
+       
+   }
+    
+   
+.footer-nav li a:hover, 
+.footer-nav li a:active {
+    
+    
+    
+    color:#ddd;
+}   
+.footer-links li:link,
+.footer-links li:visited{
+    
+  
+    
+    
+ font-size:180%   
+    
+    
+    
+}
+
+.linkedin ion-icon:hover {
+    
+    color: #007bb5;
+    
+    
+    
+}
+
+.github ion-icon:hover {
+    
+    color:#32506d;
+    
+    
+    
+}
+.twitter ion-icon:hover {
+    
+    color:#55acee;
+    
+    
+    
+}
+
+.facebook ion-icon:hover {
+    
+    color:#3b5998;
+    
+    
+    
+}
+
+
+
+ .row
+
+{
+
+margin-bottom: 0;
+padding-bottom:0;
+border:0;
+   
+}
+
+
+.row p{
+    
+    text-align: center;
+    color:#ddd;
+    
+  border-bottom:0;  
+ margin-bottom: 0;
+padding-bottom:20PX;    
+}
+
+table{
+    
+    margin-bottom: 500px;
 }

@@ -1,4 +1,4 @@
-<!doctype>
+<!doctype html>
 <html>
 
 
@@ -8,7 +8,7 @@
         <link rel='stylesheet' type='text/css' href='style.css'>
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
-
+       
 
         <title></title></head>
 
@@ -18,7 +18,7 @@
 
 
 
-        <nav> 
+        <nav class='main_pages'> 
 
 
             <!--this creates an unordered list inside of my navigation bar -->
@@ -34,7 +34,7 @@
                 <li><a href='update.php' >Update</a> </li>
                 <li><a href='delete.php' >Delete</a> </li>
 
-
+                   <h1 class='title'>  List Of Favorite Songs  </h1>
 
             </ul>
         </nav> 
@@ -44,7 +44,7 @@
 
 
 
-        <p> Please enter the row number corresponding to the entry that you would like to edit. Thank You </p>
+        <p> Please enter the id number corresponding to the entry that you would like to edit. Thank You </p>
         <form action='update_entry.php' method='POST'>
             <?php
             /*
@@ -60,7 +60,7 @@
 
              */
 
-             echo "<pre> id  <input type='text' placeholder='Enter your text here' name='id' > <br> <br><br></pre>";
+             echo "<pre> id  <input type='number' pattern ='[0-9' placeholder='Enter Numbers Only' name='id' > <br> <br><br></pre>";
 
             echo "<pre>  Author  <input type='text' placeholder='Enter your text here' name='author' > <br> <br><br></pre>";
 
@@ -71,11 +71,10 @@
             echo "<pre>  Artist <input type='text' placeholder='Enter your text here' name='singer' > <br> <br><br></pre>";
 
 
-            echo "<pre>  Year <input type='text' placeholder='Enter your text here' name='year' > <br> <br><br></pre>";
+            echo "<pre>  Year <input type='number' pattern ='[0-9]' placeholder='Enter Numbers Only' name='year'><br> <br><br></pre>";
 
 
-            echo "<input type='submit' text='update'> 
-      </form>";
+            echo "<input type='submit' text='update'> </form>";
 
 
             error_reporting(E_ALL);
@@ -113,11 +112,9 @@
                     echo "</tr>";
                     $i++;
                 }
-            } else {
-                echo "0 results";
-            }
+            } 
 
-            echo"</table><br><br><br>";
+            echo "</table>";
             
            
             ?>
@@ -181,3 +178,4 @@
 
     </body>
 
+        </html>

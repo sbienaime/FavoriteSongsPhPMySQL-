@@ -1,4 +1,4 @@
-<!doctype>  
+<!doctype html>  
 <html>
 
     <head>
@@ -9,7 +9,7 @@
     </head>
     <body>
         <nav>
-            <ul>
+            <ul class='sub_pages'>
 
                 <!-- these are the list items aka the navigation butons -->  
 
@@ -21,7 +21,7 @@
                 <li><a href='insert.php' >Insert</a> </li>
                 <li><a href='update.php' >Update</a> </li>
                 <li><a href='delete.php' >Delete</a> </li>
-
+             <h1 class='title'>  List Of Favorite Songs  </h1>
             </ul>
         </nav> 
 
@@ -30,7 +30,7 @@
         <?php
         $author = $_POST['author'];
         $title = $_POST['title'];
-
+        $id = $_POST['title'];
         $year = $_POST['year'];
         $artist = $_POST['singer'];
 
@@ -45,17 +45,28 @@
         $mysql_pass = 'password';
         $sqldb = 'favorite_songs';
         $m = "does not exist";
-
+        
         $conn = new mysqli($mysql_host, $mysql_user, $mysql_pass, $sqldb);
 
         $insert = 'INSERT INTO favorite_songs (author, title, release_year, artist) 
              VALUES("' . $author . '","' . $title . '","' . $year . '","' . $artist . '");';
-        if ($conn->query($insert) === TRUE) {
-            echo "New record created successfully";
-        } else {
-            echo "Your entry was not valid, please try again. Thank You.";
-        }
+         if (!empty($_POST['singer']) && !empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['year']) ) {
+             
+            
+            
+            if (!is_numeric($_POST['year']) || (int)$_POST['year']< 1800 || (int)$_POST['year'] > 2019) {
+               echo "<div class='submissions'> Please enter a valid year e.g. 1994</div>"; 
+            }
+            else{
 
+              $result = $conn->query($insert);
+               echo "<div class='submissions'> Success. !</div>";
+                }
+            
+        }
+         else {
+           echo "<div class='submissions'> Please fill out all fields. Thank You.</div>";
+        }
 
 
 
@@ -69,7 +80,7 @@
         <div class="row">
         
         
-      <div class="col span-1-of-2"
+      <div class="col span-2-of-1"
            <!--this creates an unordered list inside of my navigation bar-->
             <ul class="footer-nav">
                 <!-- these are the list items aka the navigation butons 
@@ -86,10 +97,10 @@
           
         </div>
             <div class="col span-2-of-1">
-                <ul class="footer-links">
+                <ul class="footer-links icons">
                     
                     
-            <li><a class='facebook' href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+            <li><a class='facebook' href="#"><ion-icon class='icons1' name="logo-facebook"></ion-icon></a></li>
             <li><a class='linkedin' href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
             <li><a class='twitter' href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
             <li><a  class='github' href="#"><ion-icon name="logo-github"></ion-icon></a></li>

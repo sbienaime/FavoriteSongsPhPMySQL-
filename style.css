@@ -26,14 +26,37 @@ h1{
 font-family: 'Lato', sans-serif;
 
 }
-
-nav{
-     
- height:30px;
- 
- background-color:#0984e3;
+.sub_pages{
+  align-content: center;
+ padding-bottom: 10px;
+ height:50px;   
+    
+  background:fixed;   
+   background-color: rgba(69 , 85,255, 0.75);  
 }
 
+
+
+
+.main_pages{
+ align-content: center;
+ padding-bottom: 10px;
+ height:50px;
+ background-size: cover;
+ height:100vh;
+ background:fixed;
+ background-image:url('img/microphone.jpg');
+ background-color: rgba(69 , 85,255, 0.75);
+}
+.title{
+   display:block; 
+  color:#fff;  
+ margin-left:50%;
+ margin-right:50%;
+margin-top:0px;
+padding-top: 100px;
+    
+}
 
 ul {
     
@@ -109,14 +132,17 @@ a{
     padding-bottom:10px;
 }
 nav a{ 
-   text-decoration:none;
+    
+    text-decoration:none;
     color:#fff;
     font-family: 'Lato', sans-serif;
     padding-bottom:10px;
 }
 li{
-    color:black;
-  padding-right:10px;   
+    
+    
+   color:black;
+  padding-left:15px;   
 padding-top:10px;
 padding-bottom:0;
 float:left;  
@@ -153,11 +179,11 @@ color:rgba(150,240,90,0.96);
    
    .thisfooter{
        
-      position:absolute;
-      bottom:0;
+     
+    
       width:100%;
       margin-bottom:0;
-       margin-top: 100px ;
+    
        margin-right:0;
       
        padding-bottom:0;
@@ -301,6 +327,37 @@ padding-bottom:20PX;
 }
 
 table{
-    
+   
     margin-bottom: 500px;
+}
+.submissionsfooter{
+    
+    
+    
+     width:100%;
+      margin-bottom:0;
+    
+       margin-right:0;
+      
+       padding-bottom:0;
+       
+       background-color:#333;
+    
+    
+    
+}
+
+.submissions{
+    
+ height:100vh;
+ 
+    
+}
+
+.icons{
+    padding-right:0;
+    margin-left:370px;
+    padding-left:370px;
+    margin-right:0;
+    
 }

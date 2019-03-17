@@ -1,4 +1,4 @@
-<!doctype>
+<!doctype html>
 <html>
 
 
@@ -18,7 +18,7 @@
 
 
 
-        <nav> 
+        <nav class='main_pages'> 
 
 
             <!--this creates an unordered list inside of my navigation bar -->
@@ -35,22 +35,22 @@
                 <li><a href='delete.php' >Delete</a> </li>
 
 
-
+               <h1 class='title'>  List Of Favorite Songs  </h1>
             </ul>
         </nav> 
         <p> Hello there, welcome to the Delete page. Use the form below to delete entries from the the DBS table. </p>
-
+        <p> Please enter the id number corresponding to the entry you would like to delete. Thank you.</p>
 
 
 
 
         <form action='delete_entry.php' method='POST'>
               
-            <pre> ID <input type='text' placeholder='Enter your text here' name='id' > <br> <br><br></pre>
+            <pre> ID <input type='number' pattern ='[0-9]' placeholder='Enter numbers only' name='id' > <br> <br><br></pre>
         <input type="submit"> 
         </form>
          
-        <p> Please enter the row number corresponding to the entry you would like to delete. Thank you.</p>
+       
                <table>
             <tr><th>id</th> <th>Author</th><th>Title</th><th>Year</th><th>Artist</th></tr>
         <?php

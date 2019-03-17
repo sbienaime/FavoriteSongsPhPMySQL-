@@ -2,23 +2,11 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
-        <group/>
-||||||| merged common ancestors
         <group>
-            <file>file:/var/www/TestDatabase/index.php</file>
+            <file>file:/C:/xampp/htdocs/FavoriteSongsPhPMySQL-/update.php</file>
+            <file>file:/C:/xampp/htdocs/FavoriteSongsPhPMySQL-/style.css</file>
+            <file>file:/C:/xampp/htdocs/FavoriteSongsPhPMySQL-/index.php</file>
+            <file>file:/C:/xampp/htdocs/FavoriteSongsPhPMySQL-/successfulsubmission.php</file>
         </group>
-=======
-        <group>
-            <file>file:/var/www/html/TestDatabase/successfulsubmission.php</file>
-            <file>file:/var/www/html/TestDatabase/style.css</file>
-            <file>file:/var/www/html/TestDatabase/update_entry.php</file>
-            <file>file:/var/www/html/TestDatabase/delete_entry.php</file>
-            <file>file:/var/www/html/TestDatabase/Dashboard.php</file>
-            <file>file:/var/www/html/TestDatabase/index.php</file>
-            <file>file:/var/www/html/TestDatabase/delete.php</file>
-            <file>file:/var/www/html/TestDatabase/update.php</file>
-        </group>
->>>>>>> d624ad32ee1e5c8e0bd102cb1680b2ce90e77e70
     </open-files>
 </project-private>

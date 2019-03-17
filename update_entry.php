@@ -1,4 +1,4 @@
-<!doctype>  
+<!doctype html>  
 <html>
 
     <head>
@@ -8,7 +8,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     </head>
     <body>
-        <nav>
+        <nav class='sub_pages'>
             <ul>
 
                 <!-- these are the list items aka the navigation butons -->  
@@ -21,24 +21,22 @@
                 <li><a href='insert.php' >Insert</a> </li>
                 <li><a href='update.php' >Update</a> </li>
                 <li><a href='delete.php' >Delete</a> </li>
-
+                  <h1 class='title'>  List Of Favorite Songs  </h1>
             </ul>
         </nav> 
 
 
 
         <?php
+       
+         
+       
+        $year = $_POST['year'];
+        $artist = $_POST['singer'];
         $id = $_POST['id'];
-
-
-
         $result;
         $author = $_POST['author'];
         $title = $_POST['title'];
-        $entryCheck = 'Select * FROM favorite_songs where id ="' . $id . '";';
-        $year = $_POST['year'];
-        $artist = $_POST['singer'];
-
         //$line =array($author,$title,$artist,$year);
 //$line = str_replace('"', '', $line);
 
@@ -50,38 +48,39 @@
         $mysql_pass = 'password';
         $sqldb = 'favorite_songs';
         $m = "does not exist";
-
-
+        $update= ' Update favorite_songs set author="' . $author . '", title="' . $title . '", release_year="' . $year . '", artist="'.$artist. '" where id = "'.$id.';"';
+        $entryCheck = 'Select * FROM favorite_songs where id ="' . $id . '";';
 
         
 
-        if (!empty($_POST['singer']) && !empty( $_POST['id']) && !empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['year'])) {
-
-            $conn = new mysqli($mysql_host, $mysql_user, $mysql_pass, $sqldb);
-              $result = $conn->query($entryCheck);
+        if (!empty($_POST['singer']) && !empty( $_POST['id']) && !empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['year']) ) {
+             
             
-            if ($result->num_rows > 0) {
-                $conn->query($update);
-                echo "Your changes have been made successfully. Thank You ";
-                $conn->close();
-            } else {
-                echo "Please Enter a valid id. ";
+             $conn = new mysqli($mysql_host, $mysql_user, $mysql_pass, $sqldb);
+             $result = $conn->query($entryCheck);
+             
+            if (!is_numeric($_POST['year']) || (int)$_POST['year']< 1800 || (int)$_POST['year'] > 2019) {
+               echo "<div class='submissions'> Please enter a valid year e.g. 1994</div> "; 
+            } 
+            else if ($result->num_rows > 0) {
+                     $conn->query($update);
+                      echo "<div class='submissions'> Your changes have been made successfully. Thank You</div> ";
+                      $conn->close();
             }
-        } else {
-           echo "Please fill out all fields. Thank You.";
+            else{
+               echo "<div class='submissions'> Please enter a valid id</div> " ;
+              }
+        }
+         else {
+           echo "<div class='submissions'> Please fill out all fields. Thank You.</div>";
         }
 
-
-     
-
-
-
-     
+        
         ?>
 
 
 
-        <footer class='thisfooter'>        
+        <footer class='submissionsfooter'>        
 
             <div class="row">
 
@@ -93,7 +92,7 @@
                         <!-- navigation buttons are links -->
 
                         <li><a href="index.php">Home</a></li> 
-                        <li><a href="Dashboard.php">Insert</a></li>
+                        <li><a href="insert.php">Insert</a></li>
                         <li><a href="update.php">Update</a></li>
                         <li><a href="delete.php">Delete</a></li>                                                                                                          
 

@@ -9,7 +9,7 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <link rel='stylesheet' type='text/css'  href='normalize.css'>
+        <link rel='stylesheet' type='text/css' href='normalize.css'>
         <link rel="stylesheet" type="text/css" href="grid.css">
         <link rel="stylesheet" type="text/css" href="style.css">
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
@@ -23,7 +23,7 @@ and open the template in the editor.
         <!--// the navigation bar -->
         <nav>
             <!--this creates an unordered list inside of my navigation bar -->
-            <ul>
+            <ul class='main_pages'>
                 <!-- these are the list items aka the navigation butons -->  
                 <!-- navigation buttons are links -->
 
@@ -32,17 +32,16 @@ and open the template in the editor.
                 <li><a href='update.php' >Update</a> </li>
                 <li><a href='delete.php' >Delete</a> </li>
 
-
+                  <h1 class='title'>  List Of Favorite Songs  </h1>
 
             </ul>
         </nav> 
 
-        <h1>  List Of Favorite Songs  </h1>
+       
 
 
         <p> Below is your current list of favorite songs. You can add to this list by going to the forms page.  </p>
-        <table>
-            <tr> <th>Author</th><th>Title</th><th>Year</th><th>Artist</th></tr>
+        
         <?php
         error_reporting(E_ALL);
         ini_set('display_errors', 1);
@@ -54,50 +53,35 @@ and open the template in the editor.
 
         $conn = new mysqli($mysql_host, $mysql_user, $mysql_pass, $sqldb);
 
-        /* $update = 'INSERT INTO favorite_songs (author, title, release_year, artist) 
-          VALUES("' . $author . '","' . $title . '","' . $year . '","' . $artist . '");';
-          if ($conn->query($update) === TRUE) {
-          echo "New record created successfully";
-          } else {
-          echo "Error: " . $update . "<br>" . $conn->error;
-          } */
-
-
-
-
+     
         $select = 'Select * from favorite_songs;';
         $result = $conn->query($select);
+        
+        
+        
+        
+        echo "<table>";
+           echo " <tr><th>Author</th><th>Title</th><th>Year</th><th>Artist</th></tr>";
 
         if ($result->num_rows > 0) {
             // output data of each row
             while ($row = $result->fetch_assoc()) {
 
-                echo "<tr>";
-                echo "<td>" . $row["author"] . "</td>" . "<td>" . $row["title"] . "</td>" . "<td>" . $row["release_year"] . "</td>" . "<td>" . $row["artist"] . "</td>" . "<br>";
+               
+                echo "<tr><td>" . $row['author'] . "</td>" . "<td>" . $row["title"] . "</td>" . "<td>" . $row["release_year"] . "</td>" . "<td>" . $row["artist"] . "</td></tr>";
 
-                echo "</tr>";
+                
             }
         } else {
-            echo "0 results";
+            echo " Your table is currently empty :( ";
         }
 
-        // $file = file("favoritesongs1.csv");
-        //$c = 1;
-        ////foreach ($file as $k) {
-        //  $entry = explode(",", $k);
-        // $array_size = sizeof($entry);
-        ///for ($i = 0; $i < $array_size; $i++) {
-        //echo "<tr  class=row" . $c . ">";
-        //for ($i = 0; $i < $array_size; $i++) {
-        ////    echo "<td>" . $entry[$i] . "</td>";
-        //}
-        // echo "</tr>";
-        //}
-        // $c++;
-        //}
+        
+            echo "</table>"   
+        
         ?>
             
-        </table>   
+    
             
             
            
@@ -107,14 +91,14 @@ and open the template in the editor.
         <div class="row">
         
         
-      <div class="col span-1-of-2"
+      <div class="col span-2-of-1"
            <!--this creates an unordered list inside of my navigation bar-->
             <ul class="footer-nav">
                 <!-- these are the list items aka the navigation butons 
                 <!-- navigation buttons are links -->
 
                 <li><a href="index.php">Home</a></li> 
-                <li><a href="Dashboard.php">Insert</a></li>
+                <li><a href="insert.php">Insert</a></li>
                 <li><a href="update.php">Update</a></li>
                 <li><a href="delete.php">Delete</a></li>                                                                                                          
 
@@ -124,10 +108,10 @@ and open the template in the editor.
           
         </div>
             <div class="col span-2-of-1">
-                <ul class="footer-links">
+                <ul class="footer-links icons" >
                     
                     
-            <li><a class='facebook' href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+            <li><a class='facebook' href="#"><ion-icon class='icons1' name="logo-facebook"></ion-icon></a></li>
             <li><a class='linkedin' href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
             <li><a class='twitter' href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
             <li><a  class='github' href="#"><ion-icon name="logo-github"></ion-icon></a></li>
@@ -141,7 +125,7 @@ and open the template in the editor.
             
             
             <div class="row">
-            <p class='footer'>
+            <p class='footerp'>
                 
             Copyright &copy; 2019 by Steve Bien-Aime . All rights reserved.     
             

@@ -1,4 +1,4 @@
-<!doctype>
+<!doctype html>
 <html>
 
 
@@ -22,7 +22,7 @@
 
 
             <!--this creates an unordered list inside of my navigation bar -->
-            <ul>
+            <ul class='main_pages'>
 
                 <!-- these are the list items aka the navigation butons -->  
 
@@ -34,7 +34,7 @@
                 <li><a href='update.php' >Update</a> </li>
                 <li><a href='delete.php' >Delete</a> </li>
 
-
+                 <h1 class='title'>  List Of Favorite Songs  </h1>
 
             </ul>
         </nav> 
@@ -72,11 +72,10 @@
             echo "<pre>  Artist <input type='text' placeholder='Enter your text here' name='singer' > <br> <br><br></pre>";
 
 
-            echo "<pre>  Year <input type='text' placeholder='Enter your text here' name='year' > <br> <br><br></pre>";
+            echo "<pre> Year <input type='number' pattern ='[0-9' placeholder='Enter numbers only' name='year' > <br> <br><br></pre>";
 
 
-            echo "<input type='submit' text='update'> 
-      </form>";
+            echo "<input type='submit' text='update'></form>";
 
 
             error_reporting(E_ALL);
@@ -88,14 +87,6 @@
             $m = "does not exist";
 
             $conn = new mysqli($mysql_host, $mysql_user, $mysql_pass, $sqldb);
-
-            /* $update = 'INSERT INTO favorite_songs (author, title, release_year, artist) 
-              VALUES("' . $author . '","' . $title . '","' . $year . '","' . $artist . '");';
-              if ($conn->query($update) === TRUE) {
-              echo "New record created successfully";
-              } else {
-              echo "Error: " . $update . "<br>" . $conn->error;
-              } */
 
 
 
@@ -114,17 +105,17 @@
                     echo "</tr>";
                     $i++;
                 }
-            } else {
-                echo "0 results";
-            }
+            } 
+               
+            
 
-            echo"</table><br><br><br>";
             ?>
+            
+            </table>
                         
          <footer class='thisfooter'>        
       
         <div class="row">
-        
         
       <div class="col span-1-of-2"
            <!--this creates an unordered list inside of my navigation bar-->
@@ -133,7 +124,7 @@
                 <!-- navigation buttons are links -->
 
                 <li><a href="index.php">Home</a></li> 
-                <li><a href="Dashboard.php">Insert</a></li>
+                <li><a href="insert.php">Insert</a></li>
                 <li><a href="update.php">Update</a></li>
                 <li><a href="delete.php">Delete</a></li>                                                                                                          
 

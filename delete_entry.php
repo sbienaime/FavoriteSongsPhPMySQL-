@@ -1,4 +1,4 @@
-<!doctype>  
+<!doctype html>  
 <html>
 
     <head>
@@ -8,18 +8,14 @@
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     </head>
     <body>
-        <nav>
+        <nav class='sub_pages'>
             <ul>
-
-                <!-- these are the list items aka the navigation butons -->  
-
-
                 <!-- navigation buttons are links -->
                 <li><a href='index.php' >Home</a></li> 
                 <li><a href='Dashboard.php' >Insert</a> </li>
                 <li><a href='update.php' >Update</a> </li>
                 <li><a href='delete.php' >Delete</a> </li>
-
+                 <h1 class='title'>  List Of Favorite Songs  </h1>
             </ul>
         </nav> 
 
@@ -50,33 +46,24 @@
       
 
 
-        if (isset($_POST['submit'])) {
+     
 
             if (empty($id)) {
-                echo "The id field is required. Please review the table below then enter a valid id ";
-            } else {
-
-            
-          
-           
-              
-                
+                echo "<div class='submissions'> The id field is required and must correspond to an id in the table. Please review the table then enter a valid id. Thank you</div>";
             }
-        }
+                else {
             $result = $conn->query($entryCheck);
             $Results=$result->num_rows; 
             
             if ( $Results==0) {
-                echo "Please review the table below and enter a valid id. Thank you ";
+                echo "<div class='submissions'> Please review the table below and enter a valid id. Thank you</div> ";
             } 
             else {
                
                 $conn->query($delete);
-                echo "You have successfully deleted your selected entry.";
+                echo "<div class='submissions'> You have successfully deleted your selected entry.</div>";
             }
-
-
-
+              }
 
 
 
@@ -86,7 +73,7 @@
             $conn->close();
             ?>
                           
-         <footer class='thisfooter'>        
+         <footer class='submissionsfooter'>        
       
         <div class="row">
         

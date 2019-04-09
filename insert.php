@@ -1,3 +1,16 @@
+<?php
+
+session_start();
+ 
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+
+?>
+
+
 <!doctype html>
 <html>
 
@@ -33,6 +46,8 @@
                 <li><a href='insert.php' >Insert</a> </li>
                 <li><a href='update.php' >Update</a> </li>
                 <li><a href='delete.php' >Delete</a> </li>
+                <li><a href='logout.php' >Log Out</a> </li>
+              
 
                  <h1 class='title'>  List Of Favorite Songs  </h1>
 
@@ -47,22 +62,9 @@
         <p> Please enter the row number corresponding to the entry that you would like to edit. Thank You </p>
         <form action='successfulsubmission.php' method='POST'>
             <?php
-            /*
-              global $column_names;
-              $column_names=array();
-
-              $i=0;
-              $file = file("favoritesongs1.csv");
-              foreach($file as $k) {
-              $column_names = explode(",", $k);
-
-              foreach ($column_names as $x)
-
-             */
-
-            
-
-
+            require_once('config.php');
+           
+           
             echo "<pre>  Author  <input type='text' placeholder='Enter your text here' name='author' > <br> <br><br></pre>";
 
 
@@ -80,13 +82,8 @@
 
             error_reporting(E_ALL);
             ini_set('display_errors', 1);
-            $mysql_host = 'localhost';
-            $mysql_user = 'root';
-            $mysql_pass = 'password';
-            $sqldb = 'favorite_songs';
             $m = "does not exist";
 
-            $conn = new mysqli($mysql_host, $mysql_user, $mysql_pass, $sqldb);
 
 
 
@@ -117,7 +114,7 @@
       
         <div class="row">
         
-      <div class="col span-1-of-2"
+      <div class="col span-1-of-2">
            <!--this creates an unordered list inside of my navigation bar-->
             <ul class="footer-nav">
                 <!-- these are the list items aka the navigation butons 
@@ -131,7 +128,7 @@
 
 
             </ul>
-          
+          </div>
         </div>
             <div class="col span-2-of-1">
                 <ul class="footer-links">
@@ -146,7 +143,7 @@
                     
            </ul>
            </div>
-           </div>
+        
             
             
             
@@ -166,3 +163,4 @@
 
     </body>
 
+</html>

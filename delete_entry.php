@@ -1,3 +1,15 @@
+<?php
+// Initialize the session
+session_start();
+ 
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+?>
+
+
 <!doctype html>  
 <html>
 
@@ -15,6 +27,9 @@
                 <li><a href='Dashboard.php' >Insert</a> </li>
                 <li><a href='update.php' >Update</a> </li>
                 <li><a href='delete.php' >Delete</a> </li>
+                <li><a href='logout.php' >Log Out</a> </li>
+
+                
                  <h1 class='title'>  List Of Favorite Songs  </h1>
             </ul>
         </nav> 
@@ -22,6 +37,7 @@
 
 
         <?php
+        require_once('config.php');
         $Results;
         $result;
         global $id ;
@@ -30,10 +46,6 @@
 
         error_reporting(E_ALL);
         ini_set('display_errors', 1);
-        $mysql_host = 'localhost';
-        $mysql_user = 'root';
-        $mysql_pass = 'password';
-        $sqldb = 'favorite_songs';
         $m = "does not exist";
         global  $delete;
         $delete= 'DELETE FROM favorite_songs where id ="' . $id. '";';
@@ -78,7 +90,7 @@
         <div class="row">
         
         
-      <div class="col span-1-of-2"
+      <div class="col span-1-of-2">
            <!--this creates an unordered list inside of my navigation bar-->
             <ul class="footer-nav">
                 <!-- these are the list items aka the navigation butons 
@@ -125,6 +137,6 @@
 
 <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script> 
 
-
+<script src="validatelogin.js"></script>
     </body>
 </html>

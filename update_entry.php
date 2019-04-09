@@ -1,3 +1,17 @@
+<?php
+// Initialize the session
+session_start();
+ 
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+?>
+
+
+
+
 <!doctype html>  
 <html>
 
@@ -28,7 +42,7 @@
 
 
         <?php
-       
+          require_once('config.php');
          
        
         $year = $_POST['year'];
@@ -37,16 +51,13 @@
         $result;
         $author = $_POST['author'];
         $title = $_POST['title'];
-        //$line =array($author,$title,$artist,$year);
-//$line = str_replace('"', '', $line);
+
 
 
         error_reporting(E_ALL);
         ini_set('display_errors', 1);
-        $mysql_host = 'localhost';
-        $mysql_user = 'root';
-        $mysql_pass = 'password';
-        $sqldb = 'favorite_songs';
+        require_once('config.php');
+        
         $m = "does not exist";
         $update= ' Update favorite_songs set author="' . $author . '", title="' . $title . '", release_year="' . $year . '", artist="'.$artist. '" where id = "'.$id.';"';
         $entryCheck = 'Select * FROM favorite_songs where id ="' . $id . '";';
@@ -56,7 +67,7 @@
         if (!empty($_POST['singer']) && !empty( $_POST['id']) && !empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['year']) ) {
              
             
-             $conn = new mysqli($mysql_host, $mysql_user, $mysql_pass, $sqldb);
+          
              $result = $conn->query($entryCheck);
              
             if (!is_numeric($_POST['year']) || (int)$_POST['year']< 1800 || (int)$_POST['year'] > 2019) {
@@ -85,7 +96,7 @@
             <div class="row">
 
 
-                <div class="col span-1-of-2"
+                <div class="col span-1-of-2">
                      <!--this creates an unordered list inside of my navigation bar-->
                      <ul class="footer-nav">
                         <!-- these are the list items aka the navigation butons 
@@ -94,7 +105,8 @@
                         <li><a href="index.php">Home</a></li> 
                         <li><a href="insert.php">Insert</a></li>
                         <li><a href="update.php">Update</a></li>
-                        <li><a href="delete.php">Delete</a></li>                                                                                                          
+                        <li><a href="delete.php">Delete</a></li>
+                         <li><a href='logout.php'>Log Out</a></li>
 
 
 

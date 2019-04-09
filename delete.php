@@ -1,3 +1,15 @@
+<?php
+// Initialize the session
+session_start();
+ 
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+?>
+
+
 <!doctype html>
 <html>
 
@@ -33,6 +45,8 @@
                 <li><a href='insert.php' >Insert</a> </li>
                 <li><a href='update.php' >Update</a> </li>
                 <li><a href='delete.php' >Delete</a> </li>
+                <li><a href='logout.php' >Log Out</a> </li>
+                
 
 
                <h1 class='title'>  List Of Favorite Songs  </h1>
@@ -54,29 +68,20 @@
                <table>
             <tr><th>id</th> <th>Author</th><th>Title</th><th>Year</th><th>Artist</th></tr>
         <?php
-        error_reporting(E_ALL);
+        error_reporting(E_ALL);         
         ini_set('display_errors', 1);
-        $mysql_host = 'localhost';
-        $mysql_user = 'root';
-        $mysql_pass = 'password';
-        $sqldb = 'favorite_songs';
-        $m = "does not exist";
+                   
+        require_once('config.php');
+       
 
-        $conn = new mysqli($mysql_host, $mysql_user, $mysql_pass, $sqldb);
-
-        /* $update = 'INSERT INTO favorite_songs (author, title, release_year, artist) 
-          VALUES("' . $author . '","' . $title . '","' . $year . '","' . $artist . '");';
-          if ($conn->query($update) === TRUE) {
-          echo "New record created successfully";
-          } else {
-          echo "Error: " . $update . "<br>" . $conn->error;
-          } */
+       
 
 
 
 
         $select = 'Select * from favorite_songs;';
-        $result = $conn->query($select);
+               
+        $result =$conn->query($select);
         $i=1;
         if ($result->num_rows > 0) {
             // output data of each row
@@ -107,7 +112,7 @@
         <div class="row">
         
         
-      <div class="col span-1-of-2"
+      <div class="col span-1-of-2">
            <!--this creates an unordered list inside of my navigation bar-->
             <ul class="footer-nav">
                 <!-- these are the list items aka the navigation butons 
@@ -121,7 +126,7 @@
 
 
             </ul>
-          
+          </div>
         </div>
             <div class="col span-2-of-1">
                 <ul class="footer-links">
@@ -136,8 +141,7 @@
                     
            </ul>
            </div>
-           </div>
-            
+         
             
             
             <div class="row">
@@ -157,3 +161,4 @@
     </body>
 
 
+</html>

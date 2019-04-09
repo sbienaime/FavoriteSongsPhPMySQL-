@@ -1,3 +1,16 @@
+<?php
+// Initialize the session
+session_start();
+ 
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+?>
+
+
+
 <!doctype html>  
 <html>
 
@@ -21,6 +34,9 @@
                 <li><a href='insert.php' >Insert</a> </li>
                 <li><a href='update.php' >Update</a> </li>
                 <li><a href='delete.php' >Delete</a> </li>
+                <li><a href='logout.php' >Log Out</a> </li>
+                
+                
              <h1 class='title'>  List Of Favorite Songs  </h1>
             </ul>
         </nav> 
@@ -28,6 +44,8 @@
 
 
         <?php
+        
+        require_once('config.php');
         $author = $_POST['author'];
         $title = $_POST['title'];
         $id = $_POST['title'];
@@ -40,13 +58,10 @@
 
         error_reporting(E_ALL);
         ini_set('display_errors', 1);
-        $mysql_host = 'localhost';
-        $mysql_user = 'root';
-        $mysql_pass = 'password';
-        $sqldb = 'favorite_songs';
+       
         $m = "does not exist";
         
-        $conn = new mysqli($mysql_host, $mysql_user, $mysql_pass, $sqldb);
+   
 
         $insert = 'INSERT INTO favorite_songs (author, title, release_year, artist) 
              VALUES("' . $author . '","' . $title . '","' . $year . '","' . $artist . '");';

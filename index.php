@@ -4,6 +4,10 @@
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
+
+
+
+
 -->
 <html>
     <head>
@@ -31,6 +35,11 @@ and open the template in the editor.
                 <li><a href='insert.php' >Insert</a> </li>
                 <li><a href='update.php' >Update</a> </li>
                 <li><a href='delete.php' >Delete</a> </li>
+                <li><a href='register.php' >Register</a></li>
+                 <li><a href="login.php">Log In</a></li>
+                
+                <li><a href='logout.php' >Log Out</a> </li>
+
 
                   <h1 class='title'>  List Of Favorite Songs  </h1>
 
@@ -43,17 +52,10 @@ and open the template in the editor.
         <p> Below is your current list of favorite songs. You can add to this list by going to the forms page.  </p>
         
         <?php
+        require_once('config.php');
         error_reporting(E_ALL);
         ini_set('display_errors', 1);
-        $mysql_host = 'localhost';
-        $mysql_user = 'root';
-        $mysql_pass = 'password';
-        $sqldb = 'favorite_songs';
         $m = "does not exist";
-
-        $conn = new mysqli($mysql_host, $mysql_user, $mysql_pass, $sqldb);
-
-     
         $select = 'Select * from favorite_songs;';
         $result = $conn->query($select);
         
@@ -91,7 +93,7 @@ and open the template in the editor.
         <div class="row">
         
         
-      <div class="col span-2-of-1"
+      <div class="col span-2-of-1">
            <!--this creates an unordered list inside of my navigation bar-->
             <ul class="footer-nav">
                 <!-- these are the list items aka the navigation butons 

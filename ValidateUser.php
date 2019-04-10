@@ -1,7 +1,7 @@
 <?php 
 
   // Start with the PHP code
-
+  /*
   $forename = $surname = $username = $password = $age = $email = "";
 
   if (isset($_POST['forename']))
@@ -22,11 +22,11 @@
   $fail .= validate_username($username);
   $fail .= validate_password($password);
   $fail .= validate_age($age);
-  $fail .= validate_email($email);
+  $fail .= validate_email($email);*/
 
   echo "<!DOCTYPE html>\n<html><head><title>An Example Form</title>";
 
-  if ($fail == "")
+  /*if ($fail == "")
   {
     echo "</head><body>Form data successfully validated:
       $forename, $surname, $username, $password, $age, $email.</body></html>";
@@ -35,7 +35,7 @@
     // preferably using hash encryption for the password.
 
 	exit;
-  }
+  } */
 
   echo <<<_END
 
@@ -144,7 +144,7 @@
 _END;
 
   // The PHP functions
-
+/*
   function validate_forename($field)
   {
   	return ($field == "") ? "No Forename was entered<br>": "";
@@ -199,5 +199,5 @@ _END;
   {
     if (get_magic_quotes_gpc()) $string = stripslashes($string);
     return htmlentities ($string);
-  }
+  }*/
 ?>

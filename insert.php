@@ -60,7 +60,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
 
         <p> Please enter the row number corresponding to the entry that you would like to edit. Thank You </p>
-        <form action='successfulsubmission.php' method='POST'>
+        <form action='successfulsubmission.php' method='POST' onSubmit='return validateInsert(this)'>
             <?php
             require_once('config.php');
            
@@ -160,7 +160,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         
 
 <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script> 
-
+   <script type="text/javascript" src="validatelogin.js"></script>
     </body>
 
 </html>

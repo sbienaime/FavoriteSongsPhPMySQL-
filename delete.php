@@ -58,7 +58,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
 
 
-        <form action='delete_entry.php' method='POST'>
+        <form action='delete_entry.php' method='POST' onSubmit='return validateDelete(this)'>
               
             <pre> ID <input type='number' pattern ='[0-9]' placeholder='Enter numbers only' name='id' > <br> <br><br></pre>
         <input type="submit"> 
@@ -157,7 +157,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         
 
 <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script> 
-
+ <script type="text/javascript" src="validatelogin.js"></script>
     </body>
 
 

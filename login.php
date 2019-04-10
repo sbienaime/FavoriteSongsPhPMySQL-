@@ -4,7 +4,10 @@ session_start();
  
 // Check if the user is already logged in, if yes then redirect him to welcome page
 
-
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+    header("location: index.php");
+    exit;
+}
 
 $username = $password ="";
 
@@ -29,13 +32,6 @@ if (isset($_POST['password'])){
 
 
 
-if ($fail == "")
-  {
-    echo "</head><body>Form data successfully validated:
-       $username, $password </body></html>";
-
-	exit;
-  }
 
  function fix_string($string)
   {
@@ -70,10 +66,7 @@ if ($fail == "")
 
 
 
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: index.php");
-    exit;
-}
+
  
 // Include config file
 require_once "config.php";
@@ -161,12 +154,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta charset="UTF-8">
     <title>Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    
+   
+    
+    
     <style type="text/css">
         body{ font: 14px sans-serif; }
         .wrapper{ width: 350px; padding: 20px; }
     </style>
 </head>
 <body>
+    
+    
+    
+    
     
     
     <div class="wrapper">
@@ -190,6 +191,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </form>
     </div> 
     
+    
+    
+    
+    
+        
     <script type="text/javascript" src="validatelogin.js"></script>
 </body>
 </html>

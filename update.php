@@ -60,12 +60,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
          <p> Please enter the id number corresponding to the entry that you would like to edit. Thank You </p>
         
         
-            
+      
             
                    
      <?php
-          require_once('config.php');
-            echo "<form action='update_entry.php' method='POST'>";
+         
+             echo "<form action='update_entry.php' method='POST' onSubmit='return validateUpdate(this)'>";
 
              echo "<pre> id  <input type='number' pattern ='[0-9' placeholder='Enter Numbers Only' name='id'> <br><br><br></pre>";
 
@@ -81,8 +81,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             echo "<pre>  Year <input type='number' pattern ='[0-9]' placeholder='Enter Numbers Only' name='year'><br><br><br></pre>";
 
 
-            //echo "<input type='submit' text='update'> </form>";
-
+            echo "<input type='submit' text='update'> </form>";
+        
+        
+             require_once('config.php');
 
             error_reporting(E_ALL);
             ini_set('display_errors', 1);
@@ -166,7 +168,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         
 
 <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script> 
-
+ <script type="text/javascript" src="validatelogin.js"></script>
     </body>
 
         </html>
